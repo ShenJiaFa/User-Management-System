@@ -1,0 +1,113 @@
+package com.shenjiafa.model;
+
+/**
+ * Function: 用户类模型
+ *
+ * @author ShenJiaFa
+ * @since 2022/8/6
+ */
+public class User {
+    /**
+     * 序号id
+     */
+    private long id;
+
+    /**
+     * 用户id
+     */
+    private String userId;
+
+    /**
+     * 用户名
+     */
+    private String name;
+
+    /**
+     * 用户年龄
+     */
+    private int age;
+
+    /**
+     * 用户身高
+     */
+    private double height;
+
+    /**
+     * 数据插入时间
+     */
+    private String insertTime;
+
+    /**
+     * 数据更新时间
+     */
+    private String updateTime;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public String getInsertTime() {
+        return insertTime;
+    }
+
+    public void setInsertTime(String insertTime) {
+        this.insertTime = insertTime;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", insertTime='" + insertTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                '}';
+    }
+}
