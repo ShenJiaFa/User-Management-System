@@ -1,4 +1,4 @@
-package com.shenjiafa;
+package com.shenjiafa.user;
 
 import com.shenjiafa.mapper.UserMapper;
 import com.shenjiafa.model.User;
@@ -6,19 +6,22 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
 /**
- * Function: Query all users
+ * Function:
  *
  * @author ShenJiaFa
- * @since 2022/8/6
+ * @since 2022/8/7
  */
-public class QueryAllUsersByMapper {
-    public static void main(String[] args) throws IOException {
+public class QueryAllUsersTest {
+
+    @Test
+    public void testQueryAllUsersByMapper() throws IOException {
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -28,4 +31,16 @@ public class QueryAllUsersByMapper {
         userList.forEach(System.out::println);
         sqlSession.close();
     }
+
+    @Test
+    public void testQueryAllUsersByParam() throws IOException {
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        List<User> userList = sqlSession.selectList("selectAllUsers");
+        userList.forEach(System.out::println);
+        sqlSession.close();
+    }
+
 }
