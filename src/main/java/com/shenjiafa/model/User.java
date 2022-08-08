@@ -23,6 +23,16 @@ public class User {
     private String name;
 
     /**
+     * 用户性别
+     */
+    private String gender;
+
+    /**
+     * 用户地址
+     */
+    private String address;
+
+    /**
      * 用户年龄
      */
     private int age;
@@ -66,6 +76,14 @@ public class User {
         this.name = name;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     public int getAge() {
         return age;
     }
@@ -80,6 +98,14 @@ public class User {
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getInsertTime() {
@@ -104,8 +130,10 @@ public class User {
                 "id=" + id +
                 ", userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
                 ", age=" + age +
                 ", height=" + height +
+                ", address='" + address + '\'' +
                 ", insertTime='" + insertTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +
                 '}';
