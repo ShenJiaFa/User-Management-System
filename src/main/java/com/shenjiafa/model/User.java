@@ -35,7 +35,7 @@ public class User {
     /**
      * 用户年龄
      */
-    private int age;
+    private Integer age;
 
     /**
      * 用户身高
@@ -84,11 +84,11 @@ public class User {
         this.gender = gender;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -127,12 +127,12 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id=" + id + '\'' +
                 ", userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
-                ", age=" + age +
-                ", height=" + height +
+                ", age=" + age + '\'' +
+                ", height=" + height + '\'' +
                 ", address='" + address + '\'' +
                 ", insertTime='" + insertTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +

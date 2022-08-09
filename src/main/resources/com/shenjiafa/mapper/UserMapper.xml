@@ -8,15 +8,16 @@
         <result column="insert_time" property="insertTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
+
     <select id="selectAllUsers" resultMap="userResultMap">
         select *
         from t_user;
     </select>
 
-    <select id="selectUserById" resultMap="userResultMap">
+    <select id="selectUserByUserId" resultMap="userResultMap">
         select *
         from t_user
-        where id = #{id};
+        where userid = #{userId};
     </select>
 
     <select id="selectUsersByConditions" resultMap="userResultMap">
@@ -57,7 +58,7 @@
         </where>
     </select>
 
-    <select id="selectUsersByMap" resultType="com.shenjiafa.model.User">
+    <select id="selectUsersByMap" resultMap="userResultMap">
         select *
         from t_user
         <where>
@@ -75,5 +76,69 @@
             </if>
         </where>
     </select>
+
+    <select id="selectUsersSingle" resultMap="userResultMap">
+        select *
+        from t_user
+        <where>
+            <choose>
+                <when test="name!=null and name!=''">
+                    name like #{name}
+                </when>
+                <when test="gender!=null and gender!=''">
+                    gender = #{gender}
+                </when>
+                <when test="age!=null">
+                    age = #{age}
+                </when>
+                <when test="address!=null and address!=''">
+                    address like #{address};
+                </when>
+            </choose>
+        </where>
+    </select>
+
+    <insert id="addUser" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user (userid, name, gender, age, address, insert_time, update_time)
+        values (#{userId}, #{name}, #{gender}, #{age}, #{address}, now(), now());
+    </insert>
+
+    <update id="updateUser">
+        update t_user
+        <set>
+            <if test="name!=null and name!=''">
+                name=#{name},
+            </if>
+            <if test="gender!=null and gender!=''">
+                gender=#{gender},
+            </if>
+            <if test="age!=null and age!=''">
+                age=#{age},
+            </if>
+            <if test="address!=null and address!=''">
+                address=#{address},
+            </if>
+            <if test="updateTime!=null and updateTime!=''">
+                update_time=now()
+            </if>
+        </set>
+        where userid = #{userId};
+    </update>
+
+    <delete id="deleteUserByUserId">
+        delete
+        from t_user
+        where userid = #{userId}
+    </delete>
+
+    <delete id="deleteUserByUserIds">
+        delete
+        from t_user
+        where userid in
+        <foreach collection="userIds" item="userId" separator="," open="(" close=")">
+            #{userId}
+        </foreach>
+    </delete>
+
 
 </mapper>
