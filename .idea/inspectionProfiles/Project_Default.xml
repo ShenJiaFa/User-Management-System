@@ -10,6 +10,7 @@
           <option value="org.slf4j:slf4j-api" />
           <option value="ch.qos.logback:logback-classic" />
           <option value="ch.qos.logback:logback-core" />
+          <option value="javax.servlet:javax.servlet-api" />
         </list>
       </option>
     </inspection_tool>
