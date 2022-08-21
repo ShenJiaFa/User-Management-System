@@ -14,31 +14,36 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/userLoginServlet")
-public class UserLoginServlet extends HttpServlet {
+@WebServlet("/userRegisterServlet")
+public class UserRegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 从请求中获取参数
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
+        // 封装UserLogin对象
+        UserLogin userLogin = new UserLogin();
+        userLogin.setUserName(username);
+        userLogin.setPassword(password);
+
         // Mybatis基础代码
         SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtil.getSqlSessionFactory();
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserLoginMapper userLoginMapper = sqlSession.getMapper(UserLoginMapper.class);
 
-        // 查询用户登录信息
-        UserLogin userLogin = userLoginMapper.queryUserLogin(username, password);
-        sqlSession.close();
-        // 设置字符集
-        response.setContentType("text/html;charset=utf-8");
-        PrintWriter writer = response.getWriter();
+        // 根据用户名查询出对应的用户登录信息
+        UserLogin userLoginInfo = userLoginMapper.selectByUserName(username);
 
-        // 根据查询到的结果判断是否可以登录
-        if (null != userLogin) {
-            writer.write("登录成功!");
+        // 如果未查询到则可以注册,如果查询到了则不可以注册
+        if (null == userLoginInfo) {
+            userLoginMapper.addUserLogin(userLogin);
+            sqlSession.commit();
+            sqlSession.close();
         } else {
-            writer.write("登录失败!");
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter writer = response.getWriter();
+            writer.write("注册失败,用户名已存在!");
         }
     }
 

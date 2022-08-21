@@ -10,4 +10,15 @@
         where username = #{userName}
           and password = #{password};
     </select>
+
+    <select id="selectByUserName" resultType="com.shenjiafa.model.UserLogin">
+        select *
+        from t_user_login
+        where username = #{userName};
+    </select>
+
+    <select id="addUserLogin" resultType="com.shenjiafa.model.UserLogin">
+        insert into t_user_login values (null,#{userName},#{password});
+    </select>
+
 </mapper>
