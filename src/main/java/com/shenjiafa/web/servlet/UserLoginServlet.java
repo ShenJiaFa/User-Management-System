@@ -14,6 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * Function: 用户登录Servlet
+ *
+ * @author ShenJiaFa
+ * @since 2022/8/21
+ */
 @WebServlet("/userLoginServlet")
 public class UserLoginServlet extends HttpServlet {
     @Override

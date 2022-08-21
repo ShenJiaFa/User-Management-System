@@ -3,6 +3,12 @@ package com.shenjiafa.mapper;
 import com.shenjiafa.model.UserLogin;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * Function: UserLoginMapper类
+ *
+ * @author ShenJiaFa
+ * @since 2022/8/21
+ */
 public interface UserLoginMapper {
     /**
      * 根据用户名,密码查询用户登录信息

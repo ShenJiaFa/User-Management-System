@@ -7,6 +7,12 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Function: SqlSessionFactory工具类
+ *
+ * @author ShenJiaFa
+ * @since 2022/8/21
+ */
 public class SqlSessionFactoryUtil {
 
     /**

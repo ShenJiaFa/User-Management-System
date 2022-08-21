@@ -6,6 +6,12 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Function: UserMapper类
+ *
+ * @author ShenJiaFa
+ * @since 2022/8/21
+ */
 public interface UserMapper {
     /**
      * 查询所有用户信息

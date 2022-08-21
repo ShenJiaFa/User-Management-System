@@ -1,5 +1,11 @@
 package com.shenjiafa.model;
 
+/**
+ * Function: 用户登录信息模型类
+ *
+ * @author ShenJiaFa
+ * @since 2022/8/21
+ */
 public class UserLogin {
 
     /**
