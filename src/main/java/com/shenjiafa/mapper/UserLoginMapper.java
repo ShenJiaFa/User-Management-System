@@ -1,6 +1,6 @@
 package com.shenjiafa.mapper;
 
-import com.shenjiafa.model.UserLogin;
+import com.shenjiafa.pojo.UserLogin;
 import org.apache.ibatis.annotations.Param;
 
 /**

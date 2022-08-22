@@ -1,7 +1,7 @@
 package com.shenjiafa.user;
 
-import com.shenjiafa.mapper.UserMapper;
-import com.shenjiafa.model.User;
+import com.shenjiafa.mapper.UserInfoMapper;
+import com.shenjiafa.pojo.UserInfo;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -21,17 +21,17 @@ import java.util.Map;
  * @author ShenJiaFa
  * @since 2022/8/7
  */
-public class UserTest {
+public class UserInfoInfoTest {
 
     @Test
-    public void testQueryAllUsersByMapper() throws IOException {
+    public void testQueryAllUserInfosByMapper() throws IOException {
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        List<User> userList = userMapper.selectAllUsers();
-        userList.forEach(System.out::println);
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        List<UserInfo> userInfoList = userInfoMapper.selectAllUserInfos();
+        userInfoList.forEach(System.out::println);
         sqlSession.close();
     }
 
@@ -41,8 +41,8 @@ public class UserTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        List<User> userList = sqlSession.selectList("selectAllUsers");
-        userList.forEach(System.out::println);
+        List<UserInfo> userInfoList = sqlSession.selectList("selectAllUsers");
+        userInfoList.forEach(System.out::println);
         sqlSession.close();
     }
 
@@ -52,9 +52,9 @@ public class UserTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = userMapper.selectUserByUserId("10003");
-        System.out.println(user);
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        UserInfo userInfo = userInfoMapper.selectUserByUserId("10003");
+        System.out.println(userInfo);
         sqlSession.close();
     }
 
@@ -68,9 +68,9 @@ public class UserTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        List<User> userList = userMapper.selectUsersByConditions(name, gender, age, address);
-        userList.forEach(System.out::println);
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        List<UserInfo> userInfoList = userInfoMapper.selectUsersByConditions(name, gender, age, address);
+        userInfoList.forEach(System.out::println);
         sqlSession.close();
     }
 
@@ -80,14 +80,14 @@ public class UserTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = new User();
-        user.setName("周%");
-        user.setGender("男");
-        user.setAge(19);
-        user.setAddress("%北京%");
-        List<User> userList = userMapper.selectUsersByObject(user);
-        userList.forEach(System.out::println);
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUserName("周%");
+        userInfo.setGender("男");
+        userInfo.setAge(19);
+        userInfo.setAddress("%北京%");
+        List<UserInfo> userInfoList = userInfoMapper.selectUsersByObject(userInfo);
+        userInfoList.forEach(System.out::println);
         sqlSession.close();
     }
 
@@ -97,14 +97,14 @@ public class UserTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
         Map userMap = new HashMap();
         userMap.put("name", "周%");
         userMap.put("gender", "男");
         userMap.put("age", 19);
         userMap.put("address", "%北京%");
-        List<User> userList = userMapper.selectUsersByMap(userMap);
-        userList.forEach(System.out::println);
+        List<UserInfo> userInfoList = userInfoMapper.selectUsersByMap(userMap);
+        userInfoList.forEach(System.out::println);
         sqlSession.close();
     }
 
@@ -114,11 +114,11 @@ public class UserTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = new User();
-        user.setAddress("%北京%");
-        List<User> userList = userMapper.selectUsersSingle(user);
-        userList.forEach(System.out::println);
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        UserInfo userInfo = new UserInfo();
+        userInfo.setAddress("%北京%");
+        List<UserInfo> userInfoList = userInfoMapper.selectUsersSingle(userInfo);
+        userInfoList.forEach(System.out::println);
         sqlSession.close();
     }
 
@@ -128,16 +128,16 @@ public class UserTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = new User();
-        user.setUserId("10005");
-        user.setName("王亚亚");
-        user.setGender("女");
-        user.setAge(20);
-        user.setAddress("南京市玄武区");
-        userMapper.addUser(user);
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUserId("10005");
+        userInfo.setUserName("王亚亚");
+        userInfo.setGender("女");
+        userInfo.setAge(20);
+        userInfo.setAddress("南京市玄武区");
+        userInfoMapper.addUser(userInfo);
         // 获取新添加user对象的id
-        System.out.println(user.getId());
+        System.out.println(userInfo.getId());
         sqlSession.commit();
         sqlSession.close();
     }
@@ -148,11 +148,11 @@ public class UserTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = new User();
-        user.setUserId("10005");
-        user.setName("王亚雅");
-        int count = userMapper.updateUser(user);
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUserId("10005");
+        userInfo.setUserName("王亚雅");
+        int count = userInfoMapper.updateUser(userInfo);
         System.out.println(count);
         sqlSession.commit();
         sqlSession.close();
@@ -164,10 +164,10 @@ public class UserTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = new User();
-        user.setUserId("10005");
-        userMapper.deleteUserByUserId(user.getUserId());
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUserId("10005");
+        userInfoMapper.deleteUserByUserId(userInfo.getUserId());
         sqlSession.commit();
         sqlSession.close();
     }
@@ -182,8 +182,8 @@ public class UserTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        int count = userMapper.deleteUserByUserIds(idList);
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        int count = userInfoMapper.deleteUserByUserIds(idList);
         System.out.println(count);
         sqlSession.commit();
         sqlSession.close();

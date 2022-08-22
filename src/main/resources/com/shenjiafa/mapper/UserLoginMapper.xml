@@ -4,20 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.shenjiafa.mapper.UserLoginMapper">
-    <select id="queryUserLogin" resultType="com.shenjiafa.model.UserLogin">
+    <select id="queryUserLogin" resultType="com.shenjiafa.pojo.UserLogin">
         select *
         from t_user_login
         where username = #{userName}
           and password = #{password};
     </select>
 
-    <select id="selectByUserName" resultType="com.shenjiafa.model.UserLogin">
+    <select id="selectByUserName" resultType="com.shenjiafa.pojo.UserLogin">
         select *
         from t_user_login
         where username = #{userName};
     </select>
 
-    <select id="addUserLogin" resultType="com.shenjiafa.model.UserLogin">
+    <select id="addUserLogin" resultType="com.shenjiafa.pojo.UserLogin">
         insert into t_user_login values (null,#{userName},#{password});
     </select>
 

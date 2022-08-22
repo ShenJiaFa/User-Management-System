@@ -1,6 +1,6 @@
 package com.shenjiafa.mapper;
 
-import com.shenjiafa.model.User;
+import com.shenjiafa.pojo.UserInfo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -12,13 +12,13 @@ import java.util.Map;
  * @author ShenJiaFa
  * @since 2022/8/21
  */
-public interface UserMapper {
+public interface UserInfoMapper {
     /**
      * 查询所有用户信息
      *
      * @return 用户对象列表
      */
-    List<User> selectAllUsers();
+    List<UserInfo> selectAllUserInfos();
 
     /**
      * 根据用户id查询用户信息
@@ -26,7 +26,7 @@ public interface UserMapper {
      * @param userId 用户id
      * @return 用户对象
      */
-    User selectUserByUserId(String userId);
+    UserInfo selectUserByUserId(String userId);
 
     /**
      * 根据条件查询用户
@@ -37,15 +37,15 @@ public interface UserMapper {
      * @param address 地址
      * @return 用户信息列表
      */
-    List<User> selectUsersByConditions(@Param("name") String name, @Param("gender") String gender, @Param("age") Integer age, @Param("address") String address);
+    List<UserInfo> selectUsersByConditions(@Param("name") String name, @Param("gender") String gender, @Param("age") Integer age, @Param("address") String address);
 
     /**
      * 根据对象查询用户
      *
-     * @param user 用户对象
+     * @param userInfo 用户对象
      * @return 用户对象列表
      */
-    List<User> selectUsersByObject(User user);
+    List<UserInfo> selectUsersByObject(UserInfo userInfo);
 
     /**
      * 根据Map查询用户列表
@@ -53,30 +53,30 @@ public interface UserMapper {
      * @param userMap 用户Map
      * @return 用户对象列表
      */
-    List<User> selectUsersByMap(Map userMap);
+    List<UserInfo> selectUsersByMap(Map userMap);
 
     /**
      * 根据单条件查询用户
      *
-     * @param user 用户对象
+     * @param userInfo 用户对象
      * @return 用户对象列表
      */
-    List<User> selectUsersSingle(User user);
+    List<UserInfo> selectUsersSingle(UserInfo userInfo);
 
     /**
      * 添加用户信息
      *
-     * @param user 用户对象
+     * @param userInfo 用户对象
      */
-    void addUser(User user);
+    void addUser(UserInfo userInfo);
 
     /**
      * 更新用户信息
      *
-     * @param user 用户对象
+     * @param userInfo 用户对象
      * @return 影响行数
      */
-    int updateUser(User user);
+    int updateUser(UserInfo userInfo);
 
     /**
      * 根据userId删除用户

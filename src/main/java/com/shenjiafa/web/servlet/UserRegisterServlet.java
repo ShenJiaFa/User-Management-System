@@ -1,7 +1,7 @@
 package com.shenjiafa.web.servlet;
 
 import com.shenjiafa.mapper.UserLoginMapper;
-import com.shenjiafa.model.UserLogin;
+import com.shenjiafa.pojo.UserLogin;
 import com.shenjiafa.utils.SqlSessionFactoryUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

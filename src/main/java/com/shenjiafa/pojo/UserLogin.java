@@ -1,4 +1,4 @@
-package com.shenjiafa.model;
+package com.shenjiafa.pojo;
 
 /**
  * Function: 用户登录信息模型类

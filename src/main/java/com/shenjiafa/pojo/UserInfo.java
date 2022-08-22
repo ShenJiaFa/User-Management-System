@@ -1,4 +1,4 @@
-package com.shenjiafa.model;
+package com.shenjiafa.pojo;
 
 /**
  * Function: 用户类模型
@@ -6,7 +6,7 @@ package com.shenjiafa.model;
  * @author ShenJiaFa
  * @since 2022/8/6
  */
-public class User {
+public class UserInfo {
     /**
      * 序号id
      */
@@ -20,17 +20,12 @@ public class User {
     /**
      * 用户名
      */
-    private String name;
+    private String userName;
 
     /**
      * 用户性别
      */
     private String gender;
-
-    /**
-     * 用户地址
-     */
-    private String address;
 
     /**
      * 用户年龄
@@ -41,6 +36,11 @@ public class User {
      * 用户身高
      */
     private double height;
+
+    /**
+     * 用户地址
+     */
+    private String address;
 
     /**
      * 数据插入时间
@@ -68,12 +68,12 @@ public class User {
         this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getGender() {
@@ -126,10 +126,10 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserInfo{" +
                 "id=" + id + '\'' +
                 ", userId='" + userId + '\'' +
-                ", name='" + name + '\'' +
+                ", name='" + userName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", age=" + age + '\'' +
                 ", height=" + height + '\'' +

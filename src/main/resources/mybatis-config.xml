@@ -16,7 +16,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="com/shenjiafa/mapper/UserMapper.xml"/>
+        <mapper resource="com/shenjiafa/mapper/UserInfoMapper.xml"/>
         <mapper resource="com/shenjiafa/mapper/UserLoginMapper.xml"/>
     </mappers>
 </configuration>
