@@ -14,7 +14,7 @@ import java.util.List;
  * @author ShenJiaFa
  * @since 2022/8/22
  */
-public class QueryAllUsersService {
+public class UserInfoService {
     public List<UserInfo> QueryAllUsers() {
         // 使用SqlSessionFactory工具类获取sqlSessionFactory
         SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtil.getSqlSessionFactory();
@@ -26,4 +26,15 @@ public class QueryAllUsersService {
         sqlSession.close();
         return userInfoList;
     }
+
+    public void addUserInfo(UserInfo userInfo) {
+        // 使用SqlSessionFactory工具类获取sqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        userInfoMapper.addUserInfo(userInfo);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
 }

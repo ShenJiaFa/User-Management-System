@@ -68,7 +68,7 @@ public interface UserInfoMapper {
      *
      * @param userInfo 用户对象
      */
-    void addUser(UserInfo userInfo);
+    void addUserInfo(UserInfo userInfo);
 
     /**
      * 更新用户信息

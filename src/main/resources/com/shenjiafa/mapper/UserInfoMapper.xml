@@ -100,9 +100,9 @@
         </where>
     </select>
 
-    <insert id="addUser" useGeneratedKeys="true" keyProperty="id">
-        insert into t_user (userid, name, gender, age, address, insert_time, update_time)
-        values (#{userId}, #{name}, #{gender}, #{age}, #{address}, now(), now());
+    <insert id="addUserInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user_info (user_id, user_name, gender, age, address, insert_time, update_time)
+        values (#{userId}, #{userName}, #{gender}, #{age}, #{address}, now(), now());
     </insert>
 
     <update id="updateUser">

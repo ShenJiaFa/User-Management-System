@@ -130,12 +130,12 @@ public class UserInfoInfoTest {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
         UserInfo userInfo = new UserInfo();
-        userInfo.setUserId("10005");
-        userInfo.setUserName("王亚亚");
+        userInfo.setUserId("105");
+        userInfo.setUserName("陈大芳");
         userInfo.setGender("女");
-        userInfo.setAge(20);
-        userInfo.setAddress("南京市玄武区");
-        userInfoMapper.addUser(userInfo);
+        userInfo.setAge(53);
+        userInfo.setAddress("江苏省南京市鸠江区");
+        userInfoMapper.addUserInfo(userInfo);
         // 获取新添加user对象的id
         System.out.println(userInfo.getId());
         sqlSession.commit();

@@ -6,7 +6,7 @@ package com.shenjiafa.web.servlet; /**
  */
 
 import com.shenjiafa.pojo.UserInfo;
-import com.shenjiafa.service.QueryAllUsersService;
+import com.shenjiafa.service.UserInfoService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,14 +17,14 @@ import java.util.List;
 @WebServlet("/queryAllUsersServlet")
 public class queryAllUsersServlet extends HttpServlet {
     /**
-     * 查询所有用户服务
+     * 用户服务
      */
-    private QueryAllUsersService queryAllUsersService = new QueryAllUsersService();
+    private UserInfoService userInfoService = new UserInfoService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 从服务层获取数据
-        List<UserInfo> userInfos = queryAllUsersService.QueryAllUsers();
+        List<UserInfo> userInfos = userInfoService.QueryAllUsers();
         // 存入request域中
         request.setAttribute("userInfos", userInfos);
         // 转发到userinfo.jsp

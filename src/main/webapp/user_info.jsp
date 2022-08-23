@@ -14,8 +14,8 @@
     <title>用户管理系统</title>
 </head>
 <body>
-<span style="padding-left:856px;">
-<input type="button" value="新增"><br>
+<span style="padding-left:856px;"/>
+<input type="button" value="新增" id="add_user_info"><br>
 <hr>
 <table border="1" cellspacing="0" width="900">
     <tr>
@@ -45,5 +45,10 @@
         </tr>
     </c:forEach>
 </table>
+<script>
+    document.getElementById("add_user_info").onclick = function () {
+        location.href = "/user-management-system/add_user_info.jsp";
+    }
+</script>
 </body>
 </html>
