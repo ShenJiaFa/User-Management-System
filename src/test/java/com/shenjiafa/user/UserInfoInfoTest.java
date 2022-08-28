@@ -53,7 +53,7 @@ public class UserInfoInfoTest {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
-        UserInfo userInfo = userInfoMapper.selectUserByUserId("10003");
+        UserInfo userInfo = userInfoMapper.selectUserInfosByUserId("10003");
         System.out.println(userInfo);
         sqlSession.close();
     }

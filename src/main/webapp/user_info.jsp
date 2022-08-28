@@ -41,7 +41,7 @@
             <td>${userInfo.address}</td>
             <td>${userInfo.insertTime}</td>
             <td>${userInfo.updateTime}</td>
-            <td><a href="#">修改</a> | <a href="#">删除</a></td>
+            <td><a href="/user-management-system/queryUserInfoByUserIdServlet?userId=${userInfo.userId}">修改</a> | <a href="#">删除</a></td>
         </tr>
     </c:forEach>
 </table>

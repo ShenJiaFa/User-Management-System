@@ -26,7 +26,7 @@ public interface UserInfoMapper {
      * @param userId 用户id
      * @return 用户对象
      */
-    UserInfo selectUserByUserId(String userId);
+    UserInfo selectUserInfosByUserId(String userId);
 
     /**
      * 根据条件查询用户

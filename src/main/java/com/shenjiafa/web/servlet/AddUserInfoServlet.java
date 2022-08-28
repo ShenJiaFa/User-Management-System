@@ -1,9 +1,4 @@
-package com.shenjiafa.web.servlet; /**
- * Function:
- *
- * @author ShenJiaFa
- * @since 2022/8/23
- */
+package com.shenjiafa.web.servlet;
 
 import com.shenjiafa.pojo.UserInfo;
 import com.shenjiafa.service.UserInfoService;
@@ -13,6 +8,12 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+/**
+ * Function:
+ *
+ * @author ShenJiaFa
+ * @since 2022/8/23
+ */
 @WebServlet("/addUserInfoServlet")
 public class AddUserInfoServlet extends HttpServlet {
     /**
@@ -31,7 +32,7 @@ public class AddUserInfoServlet extends HttpServlet {
         userInfo.setHeight(Double.parseDouble(request.getParameter("height")));
         userInfo.setAddress(request.getParameter("address"));
         userInfoService.addUserInfo(userInfo);
-        request.getRequestDispatcher("/queryAllUsersServlet").forward(request, response);
+        request.getRequestDispatcher("/queryAllUserInfosServlet").forward(request, response);
     }
 
     @Override

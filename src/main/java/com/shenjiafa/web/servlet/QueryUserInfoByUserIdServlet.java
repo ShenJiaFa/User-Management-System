@@ -1,0 +1,41 @@
+package com.shenjiafa.web.servlet;
+
+import com.shenjiafa.pojo.UserInfo;
+import com.shenjiafa.service.UserInfoService;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
+import java.io.IOException;
+
+/**
+ * Function:
+ *
+ * @author ShenJiaFa
+ * @since 2022/8/27
+ */
+@WebServlet("/queryUserInfoByUserIdServlet")
+public class QueryUserInfoByUserIdServlet extends HttpServlet {
+    /**
+     * 用户服务
+     */
+    private UserInfoService userInfoService = new UserInfoService();
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // 获取userId
+        String userId = request.getParameter("userId");
+        //根据userId查询出对应的用户信息
+        UserInfo userInfo = userInfoService.QueryUserInfoByUserId(userId);
+        // 把用户信息存入请求域中
+        request.setAttribute("userInfo", userInfo);
+        // 转发到userinfo.jsp
+        request.getRequestDispatcher("/update_user_info.jsp").forward(request, response);
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doGet(request, response);
+    }
+}
