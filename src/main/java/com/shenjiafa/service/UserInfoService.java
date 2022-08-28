@@ -20,7 +20,7 @@ public class UserInfoService {
      *
      * @return 用户信息列表
      */
-    public List<UserInfo> QueryAllUserInfos() {
+    public List<UserInfo> queryAllUserInfos() {
         // 使用SqlSessionFactory工具类获取sqlSessionFactory
         SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtil.getSqlSessionFactory();
         SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -67,6 +67,7 @@ public class UserInfoService {
 
     /**
      * 更新用户信息
+     *
      * @param userInfo 用户信息模型类
      */
     public void updateUserInfoByUserId(UserInfo userInfo) {
@@ -75,6 +76,19 @@ public class UserInfoService {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
         userInfoMapper.updateUserByUserId(userInfo);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    /**
+     * 根据用户id删除用户信息
+     */
+    public void delUserInfoByUserId(String userId) {
+        // 使用SqlSessionFactory工具类获取sqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        userInfoMapper.delUserInfoByUserId(userId);
         sqlSession.commit();
         sqlSession.close();
     }

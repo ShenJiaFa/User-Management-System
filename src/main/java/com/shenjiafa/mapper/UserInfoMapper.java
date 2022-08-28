@@ -83,7 +83,7 @@ public interface UserInfoMapper {
      *
      * @param userId 用户Id
      */
-    void deleteUserByUserId(String userId);
+    void delUserInfoByUserId(String userId);
 
     /**
      * 根据用户id列表批量删除用户

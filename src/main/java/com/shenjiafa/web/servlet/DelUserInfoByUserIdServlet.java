@@ -3,20 +3,21 @@ package com.shenjiafa.web.servlet;
 import com.shenjiafa.pojo.UserInfo;
 import com.shenjiafa.service.UserInfoService;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Function:
  *
  * @author ShenJiaFa
- * @since 2022/8/22
+ * @since 2022/8/27
  */
-@WebServlet("/queryAllUserInfosServlet")
-public class queryAllUserInfosServlet extends HttpServlet {
+@WebServlet("/delUserInfoByUserIdServlet")
+public class DelUserInfoByUserIdServlet extends HttpServlet {
     /**
      * 用户服务
      */
@@ -24,12 +25,13 @@ public class queryAllUserInfosServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 从服务层获取数据
-        List<UserInfo> userInfos = userInfoService.queryAllUserInfos();
-        // 存入request域中
-        request.setAttribute("userInfos", userInfos);
+        // 获取userId
+        String userId = request.getParameter("userId");
+        //根据userId删除对应数据
+        userInfoService.delUserInfoByUserId(userId);
         // 转发到userinfo.jsp
-        request.getRequestDispatcher("/user_info.jsp").forward(request, response);
+        request.getRequestDispatcher("/queryAllUserInfosServlet").forward(request, response);
+
     }
 
     @Override

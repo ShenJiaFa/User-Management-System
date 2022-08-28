@@ -116,10 +116,10 @@
         where user_id = #{userId};
     </update>
 
-    <delete id="deleteUserByUserId">
+    <delete id="delUserInfoByUserId">
         delete
-        from t_user
-        where userid = #{userId}
+        from t_user_info
+        where user_id = #{userId}
     </delete>
 
     <delete id="deleteUserByUserIds">

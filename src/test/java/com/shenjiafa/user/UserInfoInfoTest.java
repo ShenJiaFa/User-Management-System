@@ -167,7 +167,7 @@ public class UserInfoInfoTest {
         UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
         UserInfo userInfo = new UserInfo();
         userInfo.setUserId("10005");
-        userInfoMapper.deleteUserByUserId(userInfo.getUserId());
+        userInfoMapper.delUserInfoByUserId(userInfo.getUserId());
         sqlSession.commit();
         sqlSession.close();
     }
