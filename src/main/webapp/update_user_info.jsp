@@ -14,9 +14,9 @@
     <title>修改用户信息</title>
 </head>
 <body>
-<h5>修改用户信息</h5>
-<form action="/user-management-system/addUserInfoServlet" method="post">
-    用户id:<input name="userId" value="${userInfo.userId}"><br>
+<b>修改用户信息</b>
+<form action="/user-management-system/updateUserInfoServlet" method="post">
+    <input type="hidden" name="userId" value="${userInfo.userId}">
     用户名:<input name="userName" value="${userInfo.userName}"><br>
     <c:if test="${userInfo.gender=='男'}">
         性别:<input type="radio" name="gender" value="男" checked>男

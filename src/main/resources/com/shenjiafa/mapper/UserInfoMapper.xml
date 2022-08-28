@@ -105,26 +105,15 @@
         values (#{userId}, #{userName}, #{gender}, #{age}, #{height}, #{address}, now(), now());
     </insert>
 
-    <update id="updateUser">
-        update t_user
-        <set>
-            <if test="name!=null and name!=''">
-                name=#{name},
-            </if>
-            <if test="gender!=null and gender!=''">
-                gender=#{gender},
-            </if>
-            <if test="age!=null and age!=''">
-                age=#{age},
-            </if>
-            <if test="address!=null and address!=''">
-                address=#{address},
-            </if>
-            <if test="updateTime!=null and updateTime!=''">
-                update_time=now()
-            </if>
-        </set>
-        where userid = #{userId};
+    <update id="updateUserByUserId">
+        update t_user_info
+        set user_id=#{userId},
+            user_name=#{userName},
+            gender=#{gender},
+            age=#{age},
+            address=#{address},
+            update_time=now()
+        where user_id = #{userId};
     </update>
 
     <delete id="deleteUserByUserId">

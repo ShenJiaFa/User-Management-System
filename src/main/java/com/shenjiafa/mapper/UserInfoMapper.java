@@ -71,12 +71,12 @@ public interface UserInfoMapper {
     void addUserInfo(UserInfo userInfo);
 
     /**
-     * 更新用户信息
+     * 根据用户id更新用户信息
      *
      * @param userInfo 用户对象
      * @return 影响行数
      */
-    int updateUser(UserInfo userInfo);
+    int updateUserByUserId(UserInfo userInfo);
 
     /**
      * 根据userId删除用户

@@ -53,7 +53,7 @@ public class UserInfoService {
      * @param userId 用户id
      * @return 用户信息
      */
-    public UserInfo QueryUserInfoByUserId(String userId) {
+    public UserInfo queryUserInfoByUserId(String userId) {
         // 使用SqlSessionFactory工具类获取sqlSessionFactory
         SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtil.getSqlSessionFactory();
         SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -63,6 +63,20 @@ public class UserInfoService {
         // 关闭资源
         sqlSession.close();
         return userInfo;
+    }
+
+    /**
+     * 更新用户信息
+     * @param userInfo 用户信息模型类
+     */
+    public void updateUserInfoByUserId(UserInfo userInfo) {
+        // 使用SqlSessionFactory工具类获取sqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtil.getSqlSessionFactory();
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
+        userInfoMapper.updateUserByUserId(userInfo);
+        sqlSession.commit();
+        sqlSession.close();
     }
 
 }

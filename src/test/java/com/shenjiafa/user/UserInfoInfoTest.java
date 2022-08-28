@@ -152,7 +152,7 @@ public class UserInfoInfoTest {
         UserInfo userInfo = new UserInfo();
         userInfo.setUserId("10005");
         userInfo.setUserName("王亚雅");
-        int count = userInfoMapper.updateUser(userInfo);
+        int count = userInfoMapper.updateUserByUserId(userInfo);
         System.out.println(count);
         sqlSession.commit();
         sqlSession.close();

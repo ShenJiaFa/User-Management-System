@@ -26,7 +26,7 @@ public class QueryUserInfoByUserIdServlet extends HttpServlet {
         // 获取userId
         String userId = request.getParameter("userId");
         //根据userId查询出对应的用户信息
-        UserInfo userInfo = userInfoService.QueryUserInfoByUserId(userId);
+        UserInfo userInfo = userInfoService.queryUserInfoByUserId(userId);
         // 把用户信息存入请求域中
         request.setAttribute("userInfo", userInfo);
         // 转发到userinfo.jsp
