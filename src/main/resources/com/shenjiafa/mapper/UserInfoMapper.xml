@@ -101,8 +101,8 @@
     </select>
 
     <insert id="addUserInfo" useGeneratedKeys="true" keyProperty="id">
-        insert into t_user_info (user_id, user_name, gender, age, height, address, insert_time, update_time)
-        values (#{userId}, #{userName}, #{gender}, #{age}, #{height}, #{address}, now(), now());
+        insert into t_user_info (user_id, user_name, gender, age, height, hobby, address, insert_time, update_time)
+        values (#{userId}, #{userName}, #{gender}, #{age}, #{height}, #{hobby}, #{address}, now(), now());
     </insert>
 
     <update id="updateUserByUserId">
@@ -111,6 +111,8 @@
             user_name=#{userName},
             gender=#{gender},
             age=#{age},
+            height=#{height},
+            hobby=#{hobby},
             address=#{address},
             update_time=now()
         where user_id = #{userId};
@@ -130,6 +132,5 @@
             #{userId}
         </foreach>
     </delete>
-
 
 </mapper>

@@ -38,6 +38,11 @@ public class UserInfo {
     private double height;
 
     /**
+     * 用户爱好
+     */
+    private String hobby;
+
+    /**
      * 用户地址
      */
     private String address;
@@ -100,6 +105,14 @@ public class UserInfo {
         this.height = height;
     }
 
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -133,6 +146,7 @@ public class UserInfo {
                 ", gender='" + gender + '\'' +
                 ", age=" + age + '\'' +
                 ", height=" + height + '\'' +
+                ", hobby=" + hobby + '\'' +
                 ", address='" + address + '\'' +
                 ", insertTime='" + insertTime + '\'' +
                 ", updateTime='" + updateTime + '\'' +

@@ -3,9 +3,11 @@ package com.shenjiafa.web.servlet;
 import com.shenjiafa.pojo.UserInfo;
 import com.shenjiafa.service.UserInfoService;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -31,7 +33,6 @@ public class QueryUserInfoByUserIdServlet extends HttpServlet {
         request.setAttribute("userInfo", userInfo);
         // 转发到userinfo.jsp
         request.getRequestDispatcher("/update_user_info.jsp").forward(request, response);
-
     }
 
     @Override

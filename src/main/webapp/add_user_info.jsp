@@ -15,13 +15,35 @@
 <body>
 <h5>添加用户信息</h5>
 <form action="/user-management-system/addUserInfoServlet" method="post">
-    用户id:<input name="userId"><br>
-    用户名:<input name="userName"><br>
-    性别:<input type="radio" name="gender" value="男">男
-    <input type="radio" name="gender" value="女">女<br>
-    年龄:<input name="age"><br>
-    身高:<input name="height"><br>
-    地址:<input name="address"><br>
+    <label for="userId">用户id:</label>
+    <input name="userId" id="userId">
+    <br>
+    <label for="userName">用户名:</label>
+    <input name="userName" id="userName">
+    <br>
+    性别:
+    <input type="radio" name="gender" value="男" id="male"><label for="male">男</label>
+    <input type="radio" name="gender" value="女" id="female"><label for="female">女</label>
+    <br>
+    <label for="age">年龄:</label>
+    <input name="age" id="age">
+    <br>
+    <label for="height">身高:</label>
+    <input name="height" id="height">
+    <br>
+    爱好:
+    <input type="checkbox" name="hobby" value="摄影">摄影
+    <input type="checkbox" name="hobby" value="读书">读书
+    <input type="checkbox" name="hobby" value="旅行">旅行
+    <br>
+    <input type="checkbox" name="hobby" value="运动">美食
+    <input type="checkbox" name="hobby" value="运动">运动
+    <input type="checkbox" name="hobby" value="音乐">音乐
+    <input type="checkbox" name="hobby" value="电影">电影
+    <br>
+    <label for="address">地址:</label>
+    <input name="address" id="address">
+    <br>
     <input type="submit" value="提交">
 </form>
 </body>

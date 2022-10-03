@@ -28,6 +28,7 @@
     </c:if>
     年龄:<input name="age" value="${userInfo.age}"><br>
     身高:<input name="height" value="${userInfo.height}"><br>
+    爱好:<input name="hobby" value="${userInfo.hobby}"><br>
     地址:<input name="address" value="${userInfo.address}"><br>
     <input type="submit" value="提交">
 </form>

@@ -14,10 +14,10 @@
     <title>用户管理系统</title>
 </head>
 <body>
-<span style="padding-left:856px;"/>
+<span style="padding-left:956px;"/>
 <input type="button" value="新增" id="add_user_info"><br>
 <hr>
-<table border="1" cellspacing="0" width="900">
+<table border="1" cellspacing="0" width="1000">
     <tr>
         <th>序号</th>
         <th>用户id</th>
@@ -25,6 +25,7 @@
         <th>性别</th>
         <th>年龄</th>
         <th>身高</th>
+        <th>爱好</th>
         <th>地址</th>
         <th>插入时间</th>
         <th>更新时间</th>
@@ -38,6 +39,7 @@
             <td>${userInfo.gender}</td>
             <td>${userInfo.age}</td>
             <td>${userInfo.height}</td>
+            <td>${userInfo.hobby}</td>
             <td>${userInfo.address}</td>
             <td>${userInfo.insertTime}</td>
             <td>${userInfo.updateTime}</td>

@@ -1,6 +1,5 @@
 package com.shenjiafa.web.servlet;
 
-import com.shenjiafa.pojo.UserInfo;
 import com.shenjiafa.service.UserInfoService;
 
 import javax.servlet.ServletException;
