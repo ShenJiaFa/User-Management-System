@@ -42,9 +42,9 @@ public class UserLoginServlet extends HttpServlet {
 
         // 根据查询到的结果判断是否可以登录
         if (null != userLogin) {
-            writer.write("登录成功!");
+            request.getRequestDispatcher("/login_success.html").forward(request, response);
         } else {
-            writer.write("登录失败!");
+            writer.write("账号或密码错误,登录失败!");
         }
     }
 
