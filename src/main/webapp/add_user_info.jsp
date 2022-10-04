@@ -32,14 +32,14 @@
     <input name="height" id="height">
     <br>
     爱好:
-    <input type="checkbox" name="hobby" value="摄影">摄影
-    <input type="checkbox" name="hobby" value="读书">读书
-    <input type="checkbox" name="hobby" value="旅行">旅行
+    <input type="checkbox" name="hobby" value="摄影" id="photo"><label for="photo">摄影</label>
+    <input type="checkbox" name="hobby" value="读书" id="read"><label for="read">读书</label>
+    <input type="checkbox" name="hobby" value="旅行" id="travel"><label for="travel">旅行</label>
     <br>
-    <input type="checkbox" name="hobby" value="运动">美食
-    <input type="checkbox" name="hobby" value="运动">运动
-    <input type="checkbox" name="hobby" value="音乐">音乐
-    <input type="checkbox" name="hobby" value="电影">电影
+    <input type="checkbox" name="hobby" value="美食" id="food"><label for="food">美食</label>
+    <input type="checkbox" name="hobby" value="运动" id="sport"><label for="sport">运动</label>
+    <input type="checkbox" name="hobby" value="音乐" id="music"><label for="music">音乐</label>
+    <input type="checkbox" name="hobby" value="电影" id="movie"><label for="movie">电影</label>
     <br>
     <label for="address">地址:</label>
     <input name="address" id="address">
