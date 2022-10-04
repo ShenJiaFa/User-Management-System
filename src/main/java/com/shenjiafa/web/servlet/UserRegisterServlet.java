@@ -41,15 +41,16 @@ public class UserRegisterServlet extends HttpServlet {
         // 根据用户名查询出对应的用户登录信息
         UserLogin userLoginInfo = userLoginMapper.selectByUserName(username);
 
+        response.setContentType("text/html;charset=utf-8");
+        PrintWriter writer = response.getWriter();
         // 如果未查询到则可以注册,如果查询到了则不可以注册
         if (null == userLoginInfo) {
             userLoginMapper.addUserLogin(userLogin);
             sqlSession.commit();
             sqlSession.close();
+            writer.write("注册成功!<a href=\"/user-management-system/user_login.html\">返回登录</a>");
         } else {
-            response.setContentType("text/html;charset=utf-8");
-            PrintWriter writer = response.getWriter();
-            writer.write("注册失败,用户名已存在!");
+            writer.write("注册失败,用户名已存在!<a href=\"/user-management-system/user_register.html\">返回注册</a>");
         }
     }
 
