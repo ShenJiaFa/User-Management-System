@@ -44,7 +44,8 @@ public class UserLoginServlet extends HttpServlet {
         if (null != userLogin) {
             request.getRequestDispatcher("/login_success.html").forward(request, response);
         } else {
-            writer.write("账号或密码错误,登录失败!<a href=\"/user-management-system/user_login.html\">返回登录</a>");
+            writer.write("<a href=\"/user-management-system/user_login.html\">返回登录</a>" +
+                    "<script>alert(\"账号或密码错误,登录失败!\")</script>");
         }
     }
 

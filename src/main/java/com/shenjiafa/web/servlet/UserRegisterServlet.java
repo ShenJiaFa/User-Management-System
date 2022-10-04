@@ -48,9 +48,11 @@ public class UserRegisterServlet extends HttpServlet {
             userLoginMapper.addUserLogin(userLogin);
             sqlSession.commit();
             sqlSession.close();
-            writer.write("注册成功!<a href=\"/user-management-system/user_login.html\">返回登录</a>");
+            writer.write("<a href=\"/user-management-system/user_login.html\">返回登录</a>" +
+                    "<script>alert(\"注册成功!\")</script>");
         } else {
-            writer.write("注册失败,用户名已存在!<a href=\"/user-management-system/user_register.html\">返回注册</a>");
+            writer.write("<a href=\"/user-management-system/user_register.html\">返回注册</a>" +
+                    "<script>alert(\"注册失败,用户名已存在!\")</script>");
         }
     }
 
