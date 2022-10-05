@@ -28,6 +28,24 @@
     <label for="age">年龄:</label>
     <input name="age" id="age">
     <br>
+    学历:
+    <select name="education">
+        <option value="博士"/>
+        博士
+        <option value="研究生"/>
+        研究生
+        <option value="本科"/>
+        本科
+        <option value="专科"/>
+        专科
+        <option value="高中"/>
+        高中
+        <option value="初中"/>
+        初中
+        <option value="小学"/>
+        小学
+    </select>
+    <br>
     <label for="height">身高:</label>
     <input name="height" id="height">
     <br>

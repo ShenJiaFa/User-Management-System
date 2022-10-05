@@ -24,6 +24,7 @@
         <th>用户名</th>
         <th>性别</th>
         <th>年龄</th>
+        <th>学历</th>
         <th>身高</th>
         <th>爱好</th>
         <th>地址</th>
@@ -38,6 +39,7 @@
             <td>${userInfo.userName}</td>
             <td>${userInfo.gender}</td>
             <td>${userInfo.age}</td>
+            <td>${userInfo.education}</td>
             <td>${userInfo.height}</td>
             <td>${userInfo.hobby}</td>
             <td>${userInfo.address}</td>

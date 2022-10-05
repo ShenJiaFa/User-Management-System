@@ -27,10 +27,22 @@
         <input type="radio" name="gender" value="女" checked>女<br>
     </c:if>
     年龄:<input name="age" value="${userInfo.age}"><br>
+    学历:<input name="education" value="${userInfo.education}" id="education" onblur="isEduInclude()"><br>
     身高:<input name="height" value="${userInfo.height}"><br>
     爱好:<input name="hobby" value="${userInfo.hobby}"><br>
     地址:<input name="address" value="${userInfo.address}"><br>
     <input type="submit" value="提交">
 </form>
+<script>
+    function isEduInclude() {
+        let eduArray = ["博士", "研究生", "本科", "专科", "高中", "初中", "小学", "文盲", ""];
+        let edu = document.getElementById("education");
+        if (!eduArray.includes(edu.value)) {
+            alert("学历必须是[博士,研究生,本科,专科,高中,初中,小学,文盲]中的一种!")
+            edu.value = "";
+            edu.focus();
+        }
+    }
+</script>
 </body>
 </html>

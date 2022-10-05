@@ -31,6 +31,7 @@ public class UpdateUserInfoServlet extends HttpServlet {
         userInfo.setUserName(request.getParameter("userName"));
         userInfo.setGender(request.getParameter("gender"));
         userInfo.setAge(Integer.parseInt(request.getParameter("age")));
+        userInfo.setEducation(request.getParameter("education"));
         userInfo.setHeight(Double.parseDouble(request.getParameter("height")));
         userInfo.setHobby(request.getParameter("hobby"));
         userInfo.setAddress(request.getParameter("address"));

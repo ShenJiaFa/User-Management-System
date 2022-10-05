@@ -33,6 +33,11 @@ public class UserInfo {
     private Integer age;
 
     /**
+     * 用户学历
+     */
+    private String education;
+
+    /**
      * 用户身高
      */
     private double height;
@@ -97,6 +102,14 @@ public class UserInfo {
         this.age = age;
     }
 
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
     public double getHeight() {
         return height;
     }
@@ -145,6 +158,7 @@ public class UserInfo {
                 ", name='" + userName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", age=" + age + '\'' +
+                ", education=" + education + '\'' +
                 ", height=" + height + '\'' +
                 ", hobby=" + hobby + '\'' +
                 ", address='" + address + '\'' +
