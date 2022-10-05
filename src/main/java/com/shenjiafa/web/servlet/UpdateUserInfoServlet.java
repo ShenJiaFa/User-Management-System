@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Function:
@@ -33,7 +34,7 @@ public class UpdateUserInfoServlet extends HttpServlet {
         userInfo.setAge(Integer.parseInt(request.getParameter("age")));
         userInfo.setEducation(request.getParameter("education"));
         userInfo.setHeight(Double.parseDouble(request.getParameter("height")));
-        userInfo.setHobby(request.getParameter("hobby"));
+        userInfo.setHobby(Arrays.toString(request.getParameterValues("hobby")).replace("[", "").replace("]", "").replace(" ", ""));
         userInfo.setAddress(request.getParameter("address"));
         userInfoService.updateUserInfoByUserId(userInfo);
         request.getRequestDispatcher("/queryAllUserInfosServlet").forward(request, response);
