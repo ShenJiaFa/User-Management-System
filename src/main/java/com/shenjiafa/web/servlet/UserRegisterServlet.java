@@ -27,11 +27,13 @@ public class UserRegisterServlet extends HttpServlet {
         // 从请求中获取参数
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String phoneNumber = request.getParameter("phoneNumber");
 
         // 封装UserLogin对象
         UserLogin userLogin = new UserLogin();
         userLogin.setUserName(username);
         userLogin.setPassword(password);
+        userLogin.setPhoneNumber(phoneNumber);
 
         // Mybatis基础代码
         SqlSessionFactory sqlSessionFactory = SqlSessionFactoryUtil.getSqlSessionFactory();

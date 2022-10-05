@@ -18,6 +18,11 @@ public class UserLogin {
      */
     private String password;
 
+    /**
+     * 用户注册手机号
+     */
+    private String phoneNumber;
+
     public String getUserName() {
         return userName;
     }
@@ -34,11 +39,20 @@ public class UserLogin {
         this.password = password;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public String toString() {
         return "UserLogin{" +
                 "userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }

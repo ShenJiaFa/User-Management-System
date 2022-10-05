@@ -18,7 +18,8 @@
     </select>
 
     <select id="addUserLogin" resultType="com.shenjiafa.pojo.UserLogin">
-        insert into t_user_login values (null,#{userName},#{password});
+        insert into t_user_login
+        values (null, #{userName}, #{password}, #{phoneNumber});
     </select>
 
 </mapper>
