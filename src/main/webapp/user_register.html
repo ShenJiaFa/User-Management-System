@@ -28,10 +28,10 @@
         <tr>
             <td>手机号:</td>
             <td>
-                <input type="text" name="phoneNumber" id="phoneNumber">
+                <input type="text" name="phone_number" id="phone_number">
             </td>
             <td>
-                <span id="phoneNumber_err" style="color: red;font-size: small;display: none">手机号的长度必须是11位数字!</span>
+                <span id="phone_number_err" style="color: red;font-size: small;display: none">手机号的长度必须是11位数字!</span>
             </td>
         </tr>
     </table>
@@ -69,16 +69,16 @@
     }
 
     // 验证手机号是否是11位
-    let phoneNumber = document.getElementById("phoneNumber");
+    let phoneNumber = document.getElementById("phone_number");
     phoneNumber.onblur = checkPhoneNumber;
 
     function checkPhoneNumber() {
         let reg = /^[1]\d{10}$/;
         let flag = reg.test(phoneNumber.value.trim());
         if (flag) {
-            document.getElementById("phoneNumber_err").style.display = "none";
+            document.getElementById("phone_number_err").style.display = "none";
         } else {
-            document.getElementById("phoneNumber_err").style.display = "";
+            document.getElementById("phone_number_err").style.display = "";
         }
         return flag;
     }

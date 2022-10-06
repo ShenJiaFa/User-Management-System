@@ -27,7 +27,7 @@ public class UserRegisterServlet extends HttpServlet {
         // 从请求中获取参数
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String phoneNumber = request.getParameter("phoneNumber");
+        String phoneNumber = request.getParameter("phone_number");
 
         // 封装UserLogin对象
         UserLogin userLogin = new UserLogin();
