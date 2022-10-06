@@ -5,11 +5,89 @@
     <title>用户管理系统-注册</title>
 </head>
 <body>
-<form action="/user-management-system/userRegisterServlet" method="post">
-    用户名:<input type="text" name="username"> <br/>
-    密码:<input type="text" name="password"> <br/>
-    手机号:<input type="text" name="phoneNumber"><br/>
+<form action="/user-management-system/userRegisterServlet" id="reg_form" method="post">
+    <table>
+        <tr>
+            <td>用户名:</td>
+            <td>
+                <input type="text" name="username" id="username">
+            </td>
+            <td>
+                <span id="username_err" style="color: red;font-size: small;display: none">用户名必须由6-12位字母,数字,下划线组成!</span>
+            </td>
+        </tr>
+        <tr>
+            <td>密码:</td>
+            <td>
+                <input type="password" name="password" id="password">
+            </td>
+            <td>
+                <span id="password_err" style="color: red;font-size: small;display: none">密码必须由6-12位字母,数字,下划线组成!</span>
+            </td>
+        </tr>
+        <tr>
+            <td>手机号:</td>
+            <td>
+                <input type="text" name="phoneNumber" id="phoneNumber">
+            </td>
+            <td>
+                <span id="phoneNumber_err" style="color: red;font-size: small;display: none">手机号的长度必须是11位数字!</span>
+            </td>
+        </tr>
+    </table>
     <input type="submit" value="注册"/>
 </form>
+<script>
+    // 验证用户名是否6-12位
+    let username = document.getElementById("username");
+    username.onblur = checkUsername;
+
+    function checkUsername() {
+        let reg = /^\w{6,12}$/;
+        let flag = reg.test(username.value.trim());
+        if (flag) {
+            document.getElementById("username_err").style.display = "none";
+        } else {
+            document.getElementById("username_err").style.display = "";
+        }
+        return flag;
+    }
+
+    // 验证密码是否6-12位
+    let password = document.getElementById("password");
+    password.onblur = checkPassword;
+
+    function checkPassword() {
+        let reg = /^\w{6,12}$/;
+        let flag = reg.test(password.value.trim());
+        if (flag) {
+            document.getElementById("password_err").style.display = "none";
+        } else {
+            document.getElementById("password_err").style.display = "";
+        }
+        return flag;
+    }
+
+    // 验证手机号是否是11位
+    let phoneNumber = document.getElementById("phoneNumber");
+    phoneNumber.onblur = checkPhoneNumber;
+
+    function checkPhoneNumber() {
+        let reg = /^[1]\d{10}$/;
+        let flag = reg.test(phoneNumber.value.trim());
+        if (flag) {
+            document.getElementById("phoneNumber_err").style.display = "none";
+        } else {
+            document.getElementById("phoneNumber_err").style.display = "";
+        }
+        return flag;
+    }
+
+    // 验证表单提交的数据是否都合格
+    let registerForm = document.getElementById("reg_form");
+    registerForm.onsubmit = function () {
+        return checkUsername() && checkPassword() && checkPhoneNumber();
+    }
+</script>
 </body>
 </html>
