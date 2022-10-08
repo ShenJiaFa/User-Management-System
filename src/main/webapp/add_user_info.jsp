@@ -22,8 +22,8 @@
     <input name="userName" id="userName">
     <br>
     性别:
-    <input type="radio" name="gender" value="男" id="male"><label for="male">男</label>
-    <input type="radio" name="gender" value="女" id="female"><label for="female">女</label>
+    <input type="radio" name="gender" value="1" id="male"><label for="male">男</label>
+    <input type="radio" name="gender" value="0" id="female"><label for="female">女</label>
     <br>
     <label for="age">年龄:</label>
     <input name="age" id="age">

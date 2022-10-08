@@ -12,7 +12,16 @@
     </resultMap>
 
     <select id="selectAllUserInfos" resultMap="userResultMap">
-        select *
+        select user_id,
+               user_name,
+               (case gender when 1 then '男' when 0 then '女' else '' end) gender,
+               age,
+               education,
+               height,
+               hobby,
+               address,
+               insert_time,
+               update_time
         from t_user_info;
     </select>
 
@@ -101,7 +110,8 @@
     </select>
 
     <insert id="addUserInfo" useGeneratedKeys="true" keyProperty="id">
-        insert into t_user_info (user_id, user_name, gender, age, education, height, hobby, address, insert_time, update_time)
+        insert into t_user_info (user_id, user_name, gender, age, education, height, hobby, address, insert_time,
+                                 update_time)
         values (#{userId}, #{userName}, #{gender}, #{age}, #{education}, #{height}, #{hobby}, #{address}, now(), now());
     </insert>
 
