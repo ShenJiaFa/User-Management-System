@@ -5,13 +5,26 @@
     <title>用户管理系统-登录</title>
 </head>
 <body>
-<form action="/user-management-system/userLoginServlet" method="post">
-    用户名:<input type="text" name="username"> <br/>
-    密码:<input type="text" name="password"> <br/>
-    <input type="submit" value="登录"/>
+<form action="/user-management-system/userLoginServlet" id="login_form" method="post">
+    <table>
+        <tr>
+            <td>用户名:</td>
+            <td><input type="text" id="username" name="username"></td>
+        </tr>
+        <tr>
+            <td>密码:</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+    </table>
+    <input type="submit" id="submit" value="登录"/>
     <input type="button" id="register" value="注册"/>
 </form>
 <script>
+    // 验证用户名非空才可以登录
+    document.getElementById("login_form").onsubmit = function () {
+        return document.getElementById("username").value !== "";
+    }
+
     document.getElementById("register").onclick = function () {
         window.location.href = "/user-management-system/user_register.html";
     }
